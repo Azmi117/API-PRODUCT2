@@ -72,6 +72,8 @@ func (u *ProductUsecase) Update(id int, body models.Product) (models.Product, er
 		return models.Product{}, apperror.NotFound("No product exist with this id")
 	}
 
+	body.ID = existing.ID
+
 	// 2. buat Validasi untuk input aneh
 
 	if body.Name == "" {
